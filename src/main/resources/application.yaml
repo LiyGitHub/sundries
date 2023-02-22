@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mysql_demo?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  main:
+    allow-bean-definition-overriding: true
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  global-config:
+#    db-config:
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
+logging:
+  level:
+    com.baomidou.mybatisplus.sample: DEBUG
+server:
+  port: 8090
+
+springdoc:
+  group-configs:
+    - group: swagger-config
+      packages-to-scan: com.practice.bootintegrate
