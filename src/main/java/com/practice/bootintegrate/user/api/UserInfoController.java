@@ -33,23 +33,13 @@ public class UserInfoController {
     private UserInfoService userInfoService;
 
 
-    /**
-     * 查询所有用户信息
-     * @return
-     */
-    @GetMapping("/get")
-    public JsonResult<List<UserInfo>> getUserList(Long id) {
-        System.out.println(id);
-//        List<UserInfo> list = userInfoService.getList("zs");
-//        //给列表按照创建时间正序排序
-//        list.sort(Comparator.comparing(UserInfo::getCreateTime));
-//        //列表按照更新时间倒叙排列
-//        list.sort(Comparator.comparing(UserInfo::getUpdateTime).reversed());
-//        response.addHeader("token","plo");
-//        return JsonResult.success(null);
-        return null;
-    }
 
+    //查询所有用户信息
+    @GetMapping("/getList")
+    public JsonResult<List<UserInfo>> getList() {
+        List<UserInfo> list = userInfoService.list();
+        return JsonResult.success(list);
+    }
     //添加用户
     @PostMapping("/addUser")
     public JsonResult<String> addUser(@RequestBody UserInfo userInfo) {
