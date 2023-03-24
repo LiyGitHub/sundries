@@ -42,4 +42,11 @@ public class SpringUtil implements ApplicationContextAware {
         return getApplicationContext().getBean(name, clazz);
     }
 
+    /**
+     * 通过class获取Bean.
+     */
+    public static <T> T getBean(Class<T> clazz) {
+        return getApplicationContext().getBean(clazz);
+    }
+
  }
