@@ -71,5 +71,15 @@ public class UserInfoController {
         private List<String> strings;
     }
 
+    /**
+     * 根据id查询用户信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/getUserInfo")
+    public JsonResult<UserInfo> getUserInfo(@RequestParam("id") Long id) {
+        UserInfo userInfo = userInfoService.getById(id);
+        return JsonResult.success(userInfo);
+    }
 }
 
