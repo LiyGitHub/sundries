@@ -81,5 +81,16 @@ public class UserInfoController {
         UserInfo userInfo = userInfoService.getById(id);
         return JsonResult.success(userInfo);
     }
+
+    /**
+     * 根据id删除用户信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/deleteUserInfo")
+    public JsonResult<String> deleteUserInfo(@RequestParam("id") Long id) {
+        userInfoService.removeById(id);
+        return JsonResult.success("删除成功");
+    }
 }
 
