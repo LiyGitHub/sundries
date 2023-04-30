@@ -63,6 +63,7 @@ public class UserInfoController {
         Test test = new Test();
         test.setStrings(list);
         test.getStrings().add("02");
+        //test.getStrings().add("03");
         System.out.println(list);
     }
 
