@@ -53,7 +53,7 @@ public class SdkSample {
 //        byte[] file = Util.readFileByBytes(image);
 //        res = client.idcard(file, idCardSide, options);
 //        System.out.println(res.toString(2));
-
+//测试提交
     }
 
 
