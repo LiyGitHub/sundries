@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class OrderQueryTask {
 
 
-    @Scheduled(cron = "0 3/1 * * * ?")
+//    @Scheduled(cron = "0 3/1 * * * ?")
     public void orderQuery() {
         System.out.println("==========一号定时任务启动==========");
         log.info("==========一号定时任务启动==========");
