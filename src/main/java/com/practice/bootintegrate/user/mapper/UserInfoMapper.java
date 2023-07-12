@@ -14,6 +14,9 @@ import java.util.List;
  * @since 2022-06-08
  */
 public interface UserInfoMapper extends BaseMapper<UserInfo> {
-
+    /**
+     * 查询用户信息
+     * @return
+     */
     List<UserInfo> getList();
 }

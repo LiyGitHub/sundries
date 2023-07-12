@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.util.*;
 
 import com.baidu.aip.face.AipFace;
-import org.json.JSONObject;
 import com.baidu.aip.ocr.AipOcr;
+import org.json.JSONObject;
+
 public class SdkSample {
     //设置APPID/AK/SK
     public static final String APP_ID = "1";

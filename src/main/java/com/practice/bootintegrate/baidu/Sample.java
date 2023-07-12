@@ -20,6 +20,7 @@ class Sample {
             .addHeader("Content-Type", "application/json")
             .addHeader("Accept", "application/json")
             .build();
+        System.out.println("打印日志");
         Response response = HTTP_CLIENT.newCall(request).execute();
         System.out.println(JSONObject.parseObject(response.body().string()).getJSONObject("result").getString("verify_token"));
     }

@@ -1,9 +1,8 @@
 package com.practice.bootintegrate.user.api;
 
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.alibaba.fastjson.JSONObject;
 import com.practice.bootintegrate.common.JsonResult;
 import com.practice.bootintegrate.user.domain.UserInfo;
-import com.practice.bootintegrate.user.param.DateParam;
 import com.practice.bootintegrate.user.service.UserInfoService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -35,9 +33,10 @@ public class UserInfoController {
 
 
     //查询所有用户信息
-    @GetMapping("/getList")
-    public JsonResult<List<UserInfo>> getList() {
-        List<UserInfo> list = userInfoService.list();
+    @RequestMapping(value = "/getList")
+    public JsonResult<List<UserInfo>> getList(HttpServletRequest request, HttpServletResponse response) {
+//        List<UserInfo> list = userInfoService.getList("");
+        List<UserInfo> list = new ArrayList<>();
         return JsonResult.success(list);
     }
     //添加用户
