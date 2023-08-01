@@ -43,6 +43,7 @@ public class UserInfoController {
     @PostMapping("/addUser")
     public JsonResult<String> addUser(@RequestBody UserInfo userInfo) {
         userInfoService.save(userInfo);
+        //userInfoService.addUser(userInfo);
         return JsonResult.success("添加成功");
     }
 
