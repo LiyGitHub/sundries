@@ -39,7 +39,7 @@ public class UserInfoController {
     @RepeatSubmit
     public JsonResult<List<UserInfo>> getList(HttpServletRequest request, HttpServletResponse response) {
 //        List<UserInfo> list = userInfoService.getList("");
-        List<UserInfo> list = new ArrayList<>();
+        List<UserInfo> list = userInfoService.list();
         return JsonResult.success(list);
     }
 
