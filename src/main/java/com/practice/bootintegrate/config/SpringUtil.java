@@ -1,4 +1,4 @@
-package com.practice.bootintegrate.user.config;
+package com.practice.bootintegrate.config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

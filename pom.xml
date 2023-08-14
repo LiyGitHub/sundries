@@ -145,6 +145,17 @@
 <!--            &lt;!&ndash;这里Latest Version是指最新版本的依赖,比如2.0.0,可以通过下面的图片获取&ndash;&gt;-->
 <!--            <version>2.0.0-beta1</version>-->
 <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-common</artifactId>
+            <version>4.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>

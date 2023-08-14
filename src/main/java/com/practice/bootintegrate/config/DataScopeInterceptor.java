@@ -1,4 +1,4 @@
-package com.practice.bootintegrate.user.config;
+package com.practice.bootintegrate.config;
 
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.handlers.AbstractSqlParserHandler;

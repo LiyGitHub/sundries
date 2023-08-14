@@ -1,6 +1,6 @@
 package com.practice.bootintegrate.user.api;
 
-import com.alibaba.fastjson.JSONObject;
+import com.practice.bootintegrate.annotation.RepeatSubmit;
 import com.practice.bootintegrate.common.JsonResult;
 import com.practice.bootintegrate.user.domain.UserInfo;
 import com.practice.bootintegrate.user.service.UserInfoService;
@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -27,19 +24,31 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/userInfo")
 public class UserInfoController {
+
     @Autowired
     private UserInfoService userInfoService;
 
 
-
-    //查询所有用户信息
+    /**
+     * 获取用户信息列表
+     * @param request
+     * @param response
+     * @return
+     */
     @RequestMapping(value = "/getList")
+    @RepeatSubmit
     public JsonResult<List<UserInfo>> getList(HttpServletRequest request, HttpServletResponse response) {
 //        List<UserInfo> list = userInfoService.getList("");
         List<UserInfo> list = new ArrayList<>();
         return JsonResult.success(list);
     }
-    //添加用户
+
+
+    /**
+     * 添加用户信息
+     * @param userInfo
+     * @return
+     */
     @PostMapping("/addUser")
     public JsonResult<String> addUser(@RequestBody UserInfo userInfo) {
         userInfoService.save(userInfo);
@@ -47,25 +56,6 @@ public class UserInfoController {
         return JsonResult.success("添加成功");
     }
 
-    public static void main(String[] args) {
-        List<UserInfo> userInfoList = new ArrayList<>();
-        //循环5次添加不同用户
-        for (int i = 0; i < 5; i++) {
-            UserInfo userInfo = new UserInfo();
-            userInfo.setName("张三" + i);
-            userInfo.setId(1L);
-            userInfoList.add(userInfo);
-        }
-        Map<Long, UserInfo> collect = userInfoList.stream().collect(Collectors.toMap(UserInfo::getId, Function.identity(),(u1,u2) -> u2));
-        System.out.println(collect);
-        List<String> list = new ArrayList<>();
-        list.add("01");
-        Test test = new Test();
-        test.setStrings(list);
-        test.getStrings().add("02");
-        //test.getStrings().add("03");
-        System.out.println(list);
-    }
 
     @Data
     static class Test{

@@ -1,4 +1,4 @@
-package com.practice.bootintegrate.user.config;/*
+package com.practice.bootintegrate.config;/*
  * Copyright (c) 2011-2020, baomidou (jobob@qq.com).
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not

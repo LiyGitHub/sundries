@@ -1,4 +1,4 @@
-package com.practice.bootintegrate.user.config;
+package com.practice.bootintegrate.config;
 
 import com.practice.bootintegrate.user.service.TestService;
 import com.practice.bootintegrate.user.service.impl.TestService2Impl;

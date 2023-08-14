@@ -1,4 +1,5 @@
 package com.practice.bootintegrate;
+
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
@@ -6,21 +7,15 @@ import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
-/**
- * 代码自动生成
- * @author: liuyk-a
- * @create: 2020-03-23
- **/
-public class MybatisPlusGenerator {
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 
-    /**
-     * <p>
-     * MySQL 生成演示
-     * </p>
-     */
-    public static void main(String[] args) {
+@Slf4j
+class MybatisPlusGeneratorTest {
+
+    @Test
+    void generate() {
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
@@ -88,7 +83,7 @@ public class MybatisPlusGenerator {
         //如果模块有公共路径，可以在此处配置，如果没有需要设置为null，否则Controller中@RequestMapping路径会出现双“//”
         //pc.setModuleName("basis");
         pc.setModuleName(null);
-       pc.setController("api");// 这里是控制器包名，默认 web
+        pc.setController("api");// 这里是控制器包名，默认 web
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setEntity("domain");// 这里是实体类包名，默认 entity
@@ -105,4 +100,6 @@ public class MybatisPlusGenerator {
         mpg.execute();
 
     }
+
+
 }

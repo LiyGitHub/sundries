@@ -1,4 +1,4 @@
-package com.practice.bootintegrate.user.config;
+package com.practice.bootintegrate.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import org.springframework.context.annotation.Bean;
