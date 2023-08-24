@@ -1,5 +1,6 @@
 package com.practice.bootintegrate.user.service.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.practice.bootintegrate.user.domain.UserInfo;
 import com.practice.bootintegrate.user.mapper.UserInfoMapper;
@@ -17,6 +18,7 @@ import java.util.List;
  * @since 2022-06-08
  */
 @Service
+//@DS("slave")
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
     @Override
     public List<UserInfo> getList(String name) {
