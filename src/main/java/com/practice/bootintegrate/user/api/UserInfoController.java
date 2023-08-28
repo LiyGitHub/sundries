@@ -36,7 +36,7 @@ public class UserInfoController {
      * @return
      */
     @RequestMapping(value = "/getList")
-    @RepeatSubmit
+    @RepeatSubmit(interval = 10000)
     public JsonResult<List<UserInfo>> getList() {
 //        List<UserInfo> list = userInfoService.getList("");
         List<UserInfo> list = userInfoService.list();

@@ -21,6 +21,8 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,6 +46,9 @@ public class RepeatSubmitAspect {
 
     private static final ThreadLocal<String> KEY_CACHE = new ThreadLocal<>();
 
+    @Autowired
+    private RedisTemplate<Object,Object> redisTemplate;
+
     @Before("@annotation(repeatSubmit)")
     public void doBefore(JoinPoint point, RepeatSubmit repeatSubmit) throws Throwable {
         // 如果注解不为0 则使用注解数值
@@ -66,16 +71,24 @@ public class RepeatSubmitAspect {
         submitKey = SecureUtil.md5(submitKey + ":" + nowParams);
         // 唯一标识（指定key + url + 消息头）
         String cacheRepeatKey = CacheConstants.REPEAT_SUBMIT_KEY + url + submitKey;
-        String key = RedisUtils.getCacheObject(cacheRepeatKey);
-        if (key == null) {
-            RedisUtils.setCacheObject(cacheRepeatKey, "", Duration.ofMillis(interval));
+        //原有逻辑
+//        String key = RedisUtils.getCacheObject(cacheRepeatKey);
+//        if (key == null) {
+//            RedisUtils.setCacheObject(cacheRepeatKey, "", Duration.ofMillis(interval));
+//            KEY_CACHE.set(cacheRepeatKey);
+//        } else {
+//            String message = repeatSubmit.message();
+//            if (StringUtils.startsWith(message, "{") && StringUtils.endsWith(message, "}")) {
+//                message = MessageUtils.message(StringUtils.substring(message, 1, message.length() - 1));
+//            }
+//            throw new ServiceException(message);
+//        }
+        //新逻辑
+        Boolean set = redisTemplate.opsForValue().setIfAbsent(cacheRepeatKey, "", Duration.ofMillis(interval));
+        if (set) {
             KEY_CACHE.set(cacheRepeatKey);
-        } else {
-            String message = repeatSubmit.message();
-            if (StringUtils.startsWith(message, "{") && StringUtils.endsWith(message, "}")) {
-                message = MessageUtils.message(StringUtils.substring(message, 1, message.length() - 1));
-            }
-            throw new ServiceException(message);
+        }else {
+            throw new RuntimeException("重复提交");
         }
     }
 
