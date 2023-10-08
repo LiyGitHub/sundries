@@ -69,6 +69,7 @@ public class UserInfoController {
      */
     @GetMapping("/getUserInfo")
     public JsonResult<UserInfo> getUserInfo(@RequestParam("id") Long id) {
+        //UserInfo userInfo = userInfoService.getUserInfo(id);
         UserInfo userInfo = userInfoService.getById(id);
         return JsonResult.success(userInfo);
     }
