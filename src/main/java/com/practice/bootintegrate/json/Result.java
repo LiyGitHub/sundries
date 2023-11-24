@@ -1,5 +1,6 @@
 package com.practice.bootintegrate.json;
 
+import com.practice.bootintegrate.user.domain.UserInfo;
 import lombok.Data;
 
 /**
@@ -12,5 +13,5 @@ import lombok.Data;
 public class Result {
     private Integer code;
     private String msg;
-
+    private UserInfo userInfo;
 }

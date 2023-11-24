@@ -2,6 +2,7 @@ package com.practice.bootintegrate.user.api;
 
 import com.practice.bootintegrate.annotation.RepeatSubmit;
 import com.practice.bootintegrate.common.JsonResult;
+import com.practice.bootintegrate.json.Result;
 import com.practice.bootintegrate.user.domain.UserInfo;
 import com.practice.bootintegrate.user.service.UserInfoService;
 import lombok.Data;
@@ -83,6 +84,14 @@ public class UserInfoController {
     public JsonResult<String> deleteUserInfo(@RequestParam("id") Long id) {
         userInfoService.removeById(id);
         return JsonResult.success("删除成功");
+    }
+
+    public static void main(String[] args) {
+        Result result = new Result();
+        UserInfo userInfo = new UserInfo();
+        result.setUserInfo(userInfo);
+        userInfo.setName("haha");
+        System.out.println(result);
     }
 }
 
