@@ -13,7 +13,7 @@ spring:
           driverClassName: com.mysql.jdbc.Driver
           # jdbc 所有参数配置参考
           # rewriteBatchedStatements=true 批处理优化 大幅提升批量插入更新删除性能(对数据库有性能损耗 使用批量操作应考虑性能问题)
-          url: jdbc:mysql://localhost:3306/sharding_0?useUnicode=true&characterEncoding=utf8&useSSL=false
+          url: jdbc:mysql://localhost:3306/smx_face?useUnicode=true&characterEncoding=utf8&useSSL=false
           username: root
           password: 123456
         # 从库数据源
@@ -26,7 +26,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   redis:
-    host: 192.168.0.201
+    host: 127.0.0.1
     port: 6379
 mybatis-plus:
   configuration:
