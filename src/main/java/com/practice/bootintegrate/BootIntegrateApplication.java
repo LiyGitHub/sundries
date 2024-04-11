@@ -16,6 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class BootIntegrateApplication {
 
     private static final ThreadLocal<String> TEMP_DYNAMIC_TENANT = new ThreadLocal<>();
+    //测试提交代码
 
     public static void main(String[] args) {
         SpringApplication.run(BootIntegrateApplication.class, args);
